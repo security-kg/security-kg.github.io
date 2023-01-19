@@ -40,6 +40,13 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <style>
+        .jumbotron{
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+    </style>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -104,18 +111,11 @@
     </div>
 
     <div id="about">
-        <h1 class="text-center" style="padding-bottom: 40px; line-height: 130%">ThreatKG: A Threat Knowledge Graph for Automated Open-Source Threat Intelligence Gathering and Management<br /> </h1>
-        <div class="jumbotron">
-            <!--<p class="">-->
-                <!--Simple path tracing tools such as traceroute allow malicious users to infer-->
-                <!--network topologies remotely and use that knowledge to craft advanced-->
-                <!--denial-of-service (DoS) attacks such as Link-Flooding Attacks (LFAs). Yet,-->
-                <!--despite the risk, most network operators still allow path tracing as it is an-->
-                <!--essential network debugging tool.-->
-            <!--</p>-->
-            <p>
+        <h2 class="text-center" style="padding-bottom: 40px; line-height: 130%;">ThreatKG: A Threat Knowledge Graph for Automated Open-Source Threat Intelligence Gathering and Management<br /> </h2>
+        <div class="jumbotron" style="padding-left: 30px; padding-right: 30px; padding-top: 15px; padding-bottom: 10px; text-align: justify;">
+            <h4 style="line-height: 140%;">
                 ThreatKG is a system for automated open-source cyber threat knowledge (OSCTI) gathering and management. ThreatKG automatically collects a large number of OSCTI reports from a wide range of sources, uses a combination of ML and NLP techniques to extract high-fidelity threat knowledge, constructs a threat knowledge graph, and updates the knowledge graph by continuously ingesting new knowledge.
-            </p>
+            </h4>
 
             <p class="text-center">
                 <a href="https://arxiv.org/abs/2212.10388" target="_blank" class="btn btn-primary btn-lg">Read the paper</a>
@@ -125,7 +125,7 @@
         <div class="row row-spacing row-fact">
             <h2 class="col-xs-12">Overview</h2>
             <!--<h3 class="col-xs-12">NetHide computes a secure and usable virtual topology <br />and deploys it in the physical network</h3>-->
-            <div class="col-md-12" style="padding-top: 10px; padding-bottom: 40px;">
+            <div class="col-md-12" style="padding-top: 10px; padding-bottom: 40px; text-align: justify;">
                 <p class="lead"><small> ThreatKG consists of three phases: (1) OSCTI report collection, (2) threat knowledge extraction, and (3) threat knowledge graph construction. Each phase consists of one or several processing steps (e.g., Parser, Extractor).
                 </small></p>
                     <img src="files/arcihtecture2.png" alt="ThreatKG Architecture" title="ThreatKG Architecture" class="img-responsive" id="fig_overview">
@@ -137,12 +137,11 @@
                 <div class="col-md-6">
                     <div class="panel panel-info">
                         <div class="panel-heading"><strong>OSCTI Report Parsing and Threat Relevance Checking</strong></div>
-                        <div class="panel-body">
+                        <div class="panel-body" style="text-align: justify;">
                             <p>
                                 <b>OSCTI Report Parsing. </b>
                                 Once the crawlers collect the OSCTI reports, the porters group multi-page report files. The parsers are source- dependent; each parser parses the specific layout structure of the corresponding OSCTI source and converts the report files into unified threat knowledge representations (UTKRs).
-                            </p>
-                            <p>
+                                <br>
                                 <b>Threat Relevance Checking. </b>
                                 ThreatKG employs a set of checkers that operate on the UTKRs produced by the parsers and filter out reports that are irrelevant to cyber threats. The filtered UTKRs are then passed to the extractors for further enrichment.  
                             </p>
@@ -152,16 +151,14 @@
                 <div class="col-md-6">
                     <div class="panel panel-warning">
                         <div class="panel-heading"><strong>Threat Knowledge Extraction</strong></div>
-                        <div class="panel-body">
+                        <div class="panel-body" style="text-align: justify;">
                             <p>
                                 <b>Threat Knowledge Entity Extraction. </b>
                                 We construct a set of regex rules to extract IOCs. For other types of entities, ThreatKG employs a DL-based extractor to perform neural NER. 
-                            </p>
-                            <p>
+                                <br>
                                 <b>Threat Knowledge Relation Extraction. </b>
                                 Dependency parsing-based RE and Neural RE are used to extract relations that capture both low-level threat behaviors and high-level threat contexts.
-                            </p>
-                            <p>
+                                <br>
                                 <b>Data Programming. </b>
                                 We leverage data programming, which programmatically synthesizes annotations via unsupervised modeling of sources of weak supervision. 
                             </p>
@@ -172,18 +169,16 @@
                 <div class="col-md-6">
                     <div class="panel panel-danger">
                         <div class="panel-heading"><strong>Scalable and Extensible System Architecture</strong></div>
-                        <div class="panel-body">
+                        <div class="panel-body" style="text-align: justify;">
                             <p>
                                 <b>Threat Knowledge Graph Construction. </b>
                                 ThreatKG constructs the threat knowledge graph from the UTKRs and stores it into the backend database for persistence. 
-                            </p>
-                            <p>
+                                <br>
                                 <b>Scalability and Extensibility. </b>
                                 To make the system scalable, we parallelize the system components for the processing steps (e.g., crawlers, parsers, checkers, extractors). To make the system extensible, we adopt a modular design, allowing multiple system components in the same processing step to work together with the same input/output interface.
-                            </p>
-                            <p>
+                                <br>
                                 <b>Continuous Knowledge Integration. </b>
-                                To provide the latest threat knowledge timely, ThreatKG is fully automated and continuously running, with new reports being collected and new knowledge being extracted and integrated into the threat knowledge graph. <br>  <br> 
+                                To provide the latest threat knowledge timely, ThreatKG is fully automated and continuously running, with new reports being collected and new knowledge being extracted and integrated into the threat knowledge graph. 
                             </p>
                         </div>
                     </div>
@@ -191,10 +186,9 @@
                 <div class="col-md-6">
                     <div class="panel panel-success">
                         <div class="panel-heading"><strong>Frontend Web GUI</strong></div>
-                        <div class="panel-body">
-                        <img src="files/ui.png" alt="ThreatKG UI" title="ThreatKG UI" class="img-responsive" id="fig_ui">
+                        <div class="panel-body" style="text-align: justify;">
+                        <img src="files/ui.png" alt="ThreatKG UI" title="ThreatKG UI" class="img-responsive" id="fig_ui" style="height: 202px; margin-left: 25px;">
                             <p>
-                                <br>
                                 To facilitate threat search and knowledge graph exploration, we built a web GUI using React and Elasticsearch. The GUI interacts with the Neo4j database and provides various types of interactivity.
                             </p>
                         </div>
@@ -208,6 +202,7 @@
 
     <div id="publications">
         <h2>Publications</h2>
+
         <div class="row row-spacing">
             <div class="col-sm-12">
                 <div class="thumbnail">
@@ -227,11 +222,11 @@
                                     <li><a href="#" onclick="bibtexModal('publication-sigmod21demo'); return false;"><i class="fa fa-quote-left" aria-hidden="true"></i> BibTex</a></li>
                                 </ul>
                                 <div class="hidden txt-bibtex">@inproceedings{gao2021system,
-    title={A System for Automated Open-Source Threat Intelligence Gathering and Management},
-    author={Gao, Peng and Liu, Xiaoyuan and Choi, Edward and Soman, Bhavna and Mishra, Chinmaya and Farris, Kate and Song, Dawn},
-    year={2021},
-    booktitle = {Proceedings of the 2021 ACM SIGMOD International Conference on Management of Data},
-    series = {SIGMOD '21}
+                                    title={A System for Automated Open-Source Threat Intelligence Gathering and Management},
+                                    author={Gao, Peng and Liu, Xiaoyuan and Choi, Edward and Soman, Bhavna and Mishra, Chinmaya and Farris, Kate and Song, Dawn},
+                                    year={2021},
+                                    booktitle = {Proceedings of the 2021 ACM SIGMOD International Conference on Management of Data},
+                                    series = {SIGMOD '21}
 }
                                 </div>
                                 <div class="hidden txt-abstract">
@@ -246,37 +241,58 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <div class="row publication-arxiv">
+                        <div class="col-md-2 col-sm-3"><a href="https://arxiv.org/pdf/2212.10388.pdf" target="_blank"><img src="files/arxiv.png" alt="ThreatKG Full Paper" class="img-responsive"></a></div>
+                        <div class="col-md-10 col-sm-9">
+                            <div class="caption">
+                                <h4 class="caption-heading-top">ThreatKG: A Threat Knowledge Graph for Automated Open-Source Cyber Threat Intelligence Gathering and Management</h4>
+                                <p>
+                                    Peng Gao, Xiaoyuan Liu, Edward Choi, Sibo Ma, Xinyu Yang, Zhengjie Ji, Zilin Zhang, Dawn Song
+                                </p>
+                                <p><a href="https://arxiv.org/" target="_blank">arXiv</a>. 2022.</p>
+                                <ul class="list-inline">
+                                    <li><a href="#" onclick="abstractModal('publication-arxiv'); return false;"><i class="fa fa-align-left" aria-hidden="true"></i> Abstract</a></li>
+                                    <li><a href="https://arxiv.org/pdf/2212.10388.pdf" target="_blank"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Paper</a></li>
+                                    <!-- <li><a href="https://www.youtube.com/watch?v=McTZps5tJ44&list=PL3xUNnH4TdbsfndCMn02BqAAgGB0z7cwq" target="_blank"><i class="fa-brands fa-youtube" aria-hidden="true"></i> Video</a></li> -->
+                                    <li><a href="#" onclick="bibtexModal('publication-arxiv'); return false;"><i class="fa fa-quote-left" aria-hidden="true"></i> BibTex</a></li>
+                                </ul>
+                                <div class="hidden txt-bibtex">@misc{https://doi.org/10.48550/arxiv.2212.10388,
+                                    doi = {10.48550/ARXIV.2212.10388},
+                                    url = {https://arxiv.org/abs/2212.10388},                                    
+                                    author = {Gao, Peng and Liu, Xiaoyuan and Choi, Edward and Ma, Sibo and Yang, Xinyu and Ji, Zhengjie and Zhang, Zilin and Song, Dawn},                                   
+                                    keywords = {Cryptography and Security (cs.CR), Databases (cs.DB), FOS: Computer and information sciences, FOS: Computer and information sciences},                                   
+                                    title = {ThreatKG: A Threat Knowledge Graph for Automated Open-Source Cyber Threat Intelligence Gathering and Management},                                 
+                                    publisher = {arXiv},                        
+                                    year = {2022},                         
+                                    copyright = {arXiv.org perpetual, non-exclusive license}
+                                  }
+                                  
+                                </div>
+                                <div class="hidden txt-abstract">
+                                    <p>
+                                    Despite the increased adoption of open-source cyber threat intelligence (OSCTI) for acquiring knowledge about cyber threats, little effort has been made to harvest knowledge from a large number of unstructured OSCTI reports available in the wild (e.g., security articles, threat reports). These reports provide comprehensive threat knowledge in a variety of entities (e.g., IOCs, threat actors, TTPs) and relations, which, however, are hard to gather due to diverse report formats, large report quantities, and complex structures and nuances in the natural language report text.
+                                    </p>
+                                    <p>
+                                    To bridge the gap, we propose ThreatKG, a system for automated open-source cyber threat knowledge gathering and management. ThreatKG automatically collects a large number of OSCTI reports from various sources, extracts high-fidelity threat knowledge, constructs a threat knowledge graph, and updates the knowledge graph by continuously ingesting new knowledge. To address multiple challenges, ThreatKG provides: (1) a hierarchical ontology for modeling a variety of threat knowledge entities and relations; (2) an accurate deep learning based pipeline for threat knowledge extraction; (3) a scalable and extensible system architecture for threat knowledge graph construction, persistence, updating, and exploration. Evaluations on a large number of reports demonstrate the effectiveness of ThreatKG in threat knowledge gathering and management. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 
-    <!--<div id="presentations">-->
-        <!--<h2>Presentations</h2>-->
-        <!--<div class="row  row-spacing">-->
-            <!--<div class="col-sm-12">-->
-                <!--<div class="thumbnail">-->
-                    <!--<div class="row">-->
-                        <!--<div class="col-md-2 col-sm-3">-->
-                            <!--<a href="files/roland-meier_nethide_usenixsec18_slides.pdf.html" target="_blank"><img src="files/roland-meier_nethide_usenixsec18_slides.png" alt="NetHide" class="img-responsive"></a>-->
-                        <!--</div>-->
-                        <!--<div class="col-md-10 col-sm-9">-->
-                            <!--<div class="caption">-->
-                                <!--<h4 class="caption-heading-top">NetHide: Secure and Practical Network Topology Obfuscation</h4>-->
-                                <!--<p>-->
-                                    <!--Roland Meier-->
-                                <!--</p>-->
-                                <!--<p><a href="https://www.usenix.org/conference/usenixsecurity18" target="_blank">USENIX Security 2018</a>. Baltimore, MD, USA (August 2018).</p>-->
-                                <!--<ul class="list-inline">-->
-                                    <!--<li><a href="files/roland-meier_nethide_usenixsec18_slides.pdf.html" target="_blank"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Slides </a></li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
 
     <div id="people">
         <h2>People</h2>
@@ -379,10 +395,10 @@
 <div class="footer">
     <div class="container text-center">
         <h2>Sponsors</h2>
-        <div class="row">
-            <div class="col-md-3 col-md-offset-0"><a href="https://www.cisco.com/"><img src="img/cisco.png" class="img-responsive" style="margin-top: 40px; margin-bottom: 20px; height: 50px; width: auto;" id='microsoft-logo' alt="Microsoft" /></a></div>
-            <div class="col-md-3 col-md-offset-0"><a href="https://cyberinitiative.org/"><img src="img/cci.png" class="img-responsive" style="margin-top: 40px; margin-bottom: 20px; height: 50px; width: auto;" id='microsoft-logo' alt="Microsoft" /></a></div>
-            <div class="col-md-3 col-md-offset-0"><a href="https://www.amazon.com/"><img src="img/amazon.png" class="img-responsive" style="margin-top: 40px; margin-bottom: 20px; height: 50px; width: auto;" id='microsoft-logo' alt="Microsoft" /></a></div>
+        <div class="row" style="margin-right: 0px;">
+            <div class="col-md-3 col-md-offset-0"><a href="https://www.cisco.com/"><img src="img/cisco.png" class="img-responsive" style="margin-top: 40px; margin-bottom: 20px; height: 50px; width: auto; margin-left: 50px;" id='microsoft-logo' alt="Cisco" /></a></div>
+            <div class="col-md-3 col-md-offset-0"><a href="https://cyberinitiative.org/"><img src="img/cci.png" class="img-responsive" style="margin-top: 40px; margin-bottom: 20px; height: 50px; width: auto;" id='microsoft-logo' alt="CCI" /></a></div>
+            <div class="col-md-3 col-md-offset-0"><a href="https://www.amazon.com/"><img src="img/amazon.png" class="img-responsive" style="margin-top: 40px; margin-bottom: 20px; height: 50px; width: auto; margin-left: 45px;" id='microsoft-logo' alt="Amazon" /></a></div>
             <div class="col-md-3 col-md-offset-0"><a href="http://www.microsoft.com/"><img src="img/microsoft.png" class="img-responsive" style="margin-top: 40px; margin-bottom: 20px; height: 50px; width: auto;" id='microsoft-logo' alt="Microsoft" /></a></div>
         </div>
   
@@ -391,7 +407,7 @@
             <div class="col-md-3 col-md-offset-3"><a href="http://www.cs.vt.edu"><img src="img/vt.png" class="img-responsive" style="margin-top: 20px; margin-bottom: 20px;" id='google-logo' alt="Google" /></a></div>
             <div class="col-md-3 col-md-offset-0"><a href="http://www.eecs.berkeley.edu"><img src="img/berkeley.png" class="img-responsive" style="margin-top: 20px; margin-bottom: 20px;" id='microsoft-logo' alt="Microsoft" /></a></div>
         </div>
-        <div class="row"  style="padding-top: 20px; padding-bottom: 20px;">
+        <!-- <div class="row"  style="padding-top: 20px; padding-bottom: 20px;">
             <div class="col-xs-12">
                 <small class="text-muted">
                     &copy;
@@ -399,7 +415,7 @@
                     <a href="https://www.berkeley.edu/" target="_blank">UC Berkeley</a>
                 </small>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
